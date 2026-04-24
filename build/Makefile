@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /Users/ethanmakokha/Desktop/DesktopFiles/csc_258/hogwild_proj
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/opt/homebrew/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -117,48 +127,74 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named hogwild
+# Target rules for targets named hogwild_core
 
 # Build rule for target.
-hogwild: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hogwild
-.PHONY : hogwild
+hogwild_core: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hogwild_core
+.PHONY : hogwild_core
 
 # fast build rule for target.
-hogwild/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/build
-.PHONY : hogwild/fast
+hogwild_core/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/build
+.PHONY : hogwild_core/fast
 
-src/dataset.o: src/dataset.cpp.o
-.PHONY : src/dataset.o
+#=============================================================================
+# Target rules for targets named hogwild_bench
+
+# Build rule for target.
+hogwild_bench: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hogwild_bench
+.PHONY : hogwild_bench
+
+# fast build rule for target.
+hogwild_bench/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_bench.dir/build.make CMakeFiles/hogwild_bench.dir/build
+.PHONY : hogwild_bench/fast
+
+#=============================================================================
+# Target rules for targets named hogwild_tests
+
+# Build rule for target.
+hogwild_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hogwild_tests
+.PHONY : hogwild_tests
+
+# fast build rule for target.
+hogwild_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_tests.dir/build.make CMakeFiles/hogwild_tests.dir/build
+.PHONY : hogwild_tests/fast
+
+src/io.o: src/io.cpp.o
+.PHONY : src/io.o
 
 # target to build an object file
-src/dataset.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/dataset.cpp.o
-.PHONY : src/dataset.cpp.o
+src/io.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/io.cpp.o
+.PHONY : src/io.cpp.o
 
-src/dataset.i: src/dataset.cpp.i
-.PHONY : src/dataset.i
+src/io.i: src/io.cpp.i
+.PHONY : src/io.i
 
 # target to preprocess a source file
-src/dataset.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/dataset.cpp.i
-.PHONY : src/dataset.cpp.i
+src/io.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/io.cpp.i
+.PHONY : src/io.cpp.i
 
-src/dataset.s: src/dataset.cpp.s
-.PHONY : src/dataset.s
+src/io.s: src/io.cpp.s
+.PHONY : src/io.s
 
 # target to generate assembly for a file
-src/dataset.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/dataset.cpp.s
-.PHONY : src/dataset.cpp.s
+src/io.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/io.cpp.s
+.PHONY : src/io.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_bench.dir/build.make CMakeFiles/hogwild_bench.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -166,7 +202,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_bench.dir/build.make CMakeFiles/hogwild_bench.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -174,104 +210,176 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_bench.dir/build.make CMakeFiles/hogwild_bench.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/metrics.o: src/metrics.cpp.o
-.PHONY : src/metrics.o
+src/schedules.o: src/schedules.cpp.o
+.PHONY : src/schedules.o
 
 # target to build an object file
-src/metrics.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/metrics.cpp.o
-.PHONY : src/metrics.cpp.o
+src/schedules.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/schedules.cpp.o
+.PHONY : src/schedules.cpp.o
 
-src/metrics.i: src/metrics.cpp.i
-.PHONY : src/metrics.i
+src/schedules.i: src/schedules.cpp.i
+.PHONY : src/schedules.i
 
 # target to preprocess a source file
-src/metrics.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/metrics.cpp.i
-.PHONY : src/metrics.cpp.i
+src/schedules.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/schedules.cpp.i
+.PHONY : src/schedules.cpp.i
 
-src/metrics.s: src/metrics.cpp.s
-.PHONY : src/metrics.s
+src/schedules.s: src/schedules.cpp.s
+.PHONY : src/schedules.s
 
 # target to generate assembly for a file
-src/metrics.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/metrics.cpp.s
-.PHONY : src/metrics.cpp.s
+src/schedules.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/schedules.cpp.s
+.PHONY : src/schedules.cpp.s
 
-src/model.o: src/model.cpp.o
-.PHONY : src/model.o
+src/system_info.o: src/system_info.cpp.o
+.PHONY : src/system_info.o
 
 # target to build an object file
-src/model.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/model.cpp.o
-.PHONY : src/model.cpp.o
+src/system_info.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/system_info.cpp.o
+.PHONY : src/system_info.cpp.o
 
-src/model.i: src/model.cpp.i
-.PHONY : src/model.i
+src/system_info.i: src/system_info.cpp.i
+.PHONY : src/system_info.i
 
 # target to preprocess a source file
-src/model.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/model.cpp.i
-.PHONY : src/model.cpp.i
+src/system_info.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/system_info.cpp.i
+.PHONY : src/system_info.cpp.i
 
-src/model.s: src/model.cpp.s
-.PHONY : src/model.s
+src/system_info.s: src/system_info.cpp.s
+.PHONY : src/system_info.s
 
 # target to generate assembly for a file
-src/model.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/model.cpp.s
-.PHONY : src/model.cpp.s
+src/system_info.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/system_info.cpp.s
+.PHONY : src/system_info.cpp.s
 
-src/sgd.o: src/sgd.cpp.o
-.PHONY : src/sgd.o
+src/train_logistic.o: src/train_logistic.cpp.o
+.PHONY : src/train_logistic.o
 
 # target to build an object file
-src/sgd.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/sgd.cpp.o
-.PHONY : src/sgd.cpp.o
+src/train_logistic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/train_logistic.cpp.o
+.PHONY : src/train_logistic.cpp.o
 
-src/sgd.i: src/sgd.cpp.i
-.PHONY : src/sgd.i
+src/train_logistic.i: src/train_logistic.cpp.i
+.PHONY : src/train_logistic.i
 
 # target to preprocess a source file
-src/sgd.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/sgd.cpp.i
-.PHONY : src/sgd.cpp.i
+src/train_logistic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/train_logistic.cpp.i
+.PHONY : src/train_logistic.cpp.i
 
-src/sgd.s: src/sgd.cpp.s
-.PHONY : src/sgd.s
+src/train_logistic.s: src/train_logistic.cpp.s
+.PHONY : src/train_logistic.s
 
 # target to generate assembly for a file
-src/sgd.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/sgd.cpp.s
-.PHONY : src/sgd.cpp.s
+src/train_logistic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/train_logistic.cpp.s
+.PHONY : src/train_logistic.cpp.s
 
-src/utils.o: src/utils.cpp.o
-.PHONY : src/utils.o
+src/train_mf.o: src/train_mf.cpp.o
+.PHONY : src/train_mf.o
 
 # target to build an object file
-src/utils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/utils.cpp.o
-.PHONY : src/utils.cpp.o
+src/train_mf.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/train_mf.cpp.o
+.PHONY : src/train_mf.cpp.o
 
-src/utils.i: src/utils.cpp.i
-.PHONY : src/utils.i
+src/train_mf.i: src/train_mf.cpp.i
+.PHONY : src/train_mf.i
 
 # target to preprocess a source file
-src/utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/utils.cpp.i
-.PHONY : src/utils.cpp.i
+src/train_mf.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/train_mf.cpp.i
+.PHONY : src/train_mf.cpp.i
 
-src/utils.s: src/utils.cpp.s
-.PHONY : src/utils.s
+src/train_mf.s: src/train_mf.cpp.s
+.PHONY : src/train_mf.s
 
 # target to generate assembly for a file
-src/utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild.dir/build.make CMakeFiles/hogwild.dir/src/utils.cpp.s
-.PHONY : src/utils.cpp.s
+src/train_mf.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/train_mf.cpp.s
+.PHONY : src/train_mf.cpp.s
+
+src/types.o: src/types.cpp.o
+.PHONY : src/types.o
+
+# target to build an object file
+src/types.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/types.cpp.o
+.PHONY : src/types.cpp.o
+
+src/types.i: src/types.cpp.i
+.PHONY : src/types.i
+
+# target to preprocess a source file
+src/types.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/types.cpp.i
+.PHONY : src/types.cpp.i
+
+src/types.s: src/types.cpp.s
+.PHONY : src/types.s
+
+# target to generate assembly for a file
+src/types.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/types.cpp.s
+.PHONY : src/types.cpp.s
+
+src/workloads.o: src/workloads.cpp.o
+.PHONY : src/workloads.o
+
+# target to build an object file
+src/workloads.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/workloads.cpp.o
+.PHONY : src/workloads.cpp.o
+
+src/workloads.i: src/workloads.cpp.i
+.PHONY : src/workloads.i
+
+# target to preprocess a source file
+src/workloads.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/workloads.cpp.i
+.PHONY : src/workloads.cpp.i
+
+src/workloads.s: src/workloads.cpp.s
+.PHONY : src/workloads.s
+
+# target to generate assembly for a file
+src/workloads.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_core.dir/build.make CMakeFiles/hogwild_core.dir/src/workloads.cpp.s
+.PHONY : src/workloads.cpp.s
+
+tests/tests.o: tests/tests.cpp.o
+.PHONY : tests/tests.o
+
+# target to build an object file
+tests/tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_tests.dir/build.make CMakeFiles/hogwild_tests.dir/tests/tests.cpp.o
+.PHONY : tests/tests.cpp.o
+
+tests/tests.i: tests/tests.cpp.i
+.PHONY : tests/tests.i
+
+# target to preprocess a source file
+tests/tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_tests.dir/build.make CMakeFiles/hogwild_tests.dir/tests/tests.cpp.i
+.PHONY : tests/tests.cpp.i
+
+tests/tests.s: tests/tests.cpp.s
+.PHONY : tests/tests.s
+
+# target to generate assembly for a file
+tests/tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hogwild_tests.dir/build.make CMakeFiles/hogwild_tests.dir/tests/tests.cpp.s
+.PHONY : tests/tests.cpp.s
 
 # Help Target
 help:
@@ -281,25 +389,37 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... hogwild"
-	@echo "... src/dataset.o"
-	@echo "... src/dataset.i"
-	@echo "... src/dataset.s"
+	@echo "... test"
+	@echo "... hogwild_bench"
+	@echo "... hogwild_core"
+	@echo "... hogwild_tests"
+	@echo "... src/io.o"
+	@echo "... src/io.i"
+	@echo "... src/io.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/metrics.o"
-	@echo "... src/metrics.i"
-	@echo "... src/metrics.s"
-	@echo "... src/model.o"
-	@echo "... src/model.i"
-	@echo "... src/model.s"
-	@echo "... src/sgd.o"
-	@echo "... src/sgd.i"
-	@echo "... src/sgd.s"
-	@echo "... src/utils.o"
-	@echo "... src/utils.i"
-	@echo "... src/utils.s"
+	@echo "... src/schedules.o"
+	@echo "... src/schedules.i"
+	@echo "... src/schedules.s"
+	@echo "... src/system_info.o"
+	@echo "... src/system_info.i"
+	@echo "... src/system_info.s"
+	@echo "... src/train_logistic.o"
+	@echo "... src/train_logistic.i"
+	@echo "... src/train_logistic.s"
+	@echo "... src/train_mf.o"
+	@echo "... src/train_mf.i"
+	@echo "... src/train_mf.s"
+	@echo "... src/types.o"
+	@echo "... src/types.i"
+	@echo "... src/types.s"
+	@echo "... src/workloads.o"
+	@echo "... src/workloads.i"
+	@echo "... src/workloads.s"
+	@echo "... tests/tests.o"
+	@echo "... tests/tests.i"
+	@echo "... tests/tests.s"
 .PHONY : help
 
 

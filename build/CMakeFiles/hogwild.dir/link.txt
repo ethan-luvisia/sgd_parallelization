@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/hogwild.dir/src/main.cpp.o CMakeFiles/hogwild.dir/src/dataset.cpp.o CMakeFiles/hogwild.dir/src/model.cpp.o CMakeFiles/hogwild.dir/src/metrics.cpp.o CMakeFiles/hogwild.dir/src/sgd.cpp.o CMakeFiles/hogwild.dir/src/utils.cpp.o -o hogwild

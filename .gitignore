@@ -1,0 +1,18 @@
+# Build artifacts
+build/
+build_gcc/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.cmake
+
+# Generated benchmark outputs
+results/
+results_full/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
