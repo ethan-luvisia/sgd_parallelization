@@ -2,16 +2,46 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Logistic workload: time-to-target-loss vs thread count.}}{3}{figure.caption.8}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Logistic workload: update throughput vs thread count.}}{4}{figure.caption.10}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Logistic workload: speedup relative to serial baseline.}}{5}{figure.caption.12}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Logistic workload: convergence trajectories over wall-clock time.}}{6}{figure.caption.14}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Logistic workload: convergence as a function of update count.}}{7}{figure.caption.16}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Logistic workload: runtime trend as active features per update ($k$) increase.}}{8}{figure.caption.18}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Logistic workload: runtime under increasing hotspot skew/contention.}}{9}{figure.caption.20}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Logistic workload: runtime versus model dimensionality $d$.}}{10}{figure.caption.22}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Matrix factorization workload: time-to-target-loss vs thread count.}}{11}{figure.caption.24}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Matrix factorization workload: update throughput vs thread count.}}{12}{figure.caption.26}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Matrix factorization workload: speedup relative to serial baseline.}}{13}{figure.caption.28}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Matrix factorization workload: convergence trajectories over time.}}{14}{figure.caption.30}\protected@file@percent }
-\gdef \@abspage@last{15}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction and Motivation}{2}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background: What Hogwild Is Trying to Exploit}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Implementation Overview}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Algorithms Compared}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Workloads}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Learning-Rate Schedules}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Methodology and Fairness Controls}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Metrics}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}High-Level Results Before the Graphs}{5}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Graph-by-Graph Results and Interpretation}{6}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Logistic: Time-to-Target vs Threads}{6}{subsection.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Logistic workload: time-to-target-loss vs thread count. Lower is better.}}{6}{figure.caption.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Logistic: Throughput vs Threads}{7}{subsection.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Logistic workload: update throughput vs thread count. Higher is better.}}{7}{figure.caption.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Logistic: Speedup vs Threads}{8}{subsection.6.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Logistic workload: speedup relative to the serial baseline. Values above 1 would mean parallel speedup.}}{8}{figure.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Logistic: Loss vs Time}{8}{subsection.6.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Logistic workload: convergence trajectory over wall-clock time.}}{9}{figure.caption.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Logistic: Loss vs Updates}{9}{subsection.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Logistic: Performance vs Sparsity}{9}{subsection.6.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Logistic workload: convergence as a function of processed updates.}}{10}{figure.caption.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Logistic workload: runtime trend as active features per update, \(k\), increases. Lower is better.}}{10}{figure.caption.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}Logistic: Performance vs Contention}{11}{subsection.6.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Logistic workload: runtime under increasing hotspot skew/contention. Lower is better.}}{11}{figure.caption.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.8}Logistic: Performance vs Model Size}{12}{subsection.6.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Logistic workload: runtime versus model dimensionality \(d\). Lower is better.}}{12}{figure.caption.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Matrix factorization workload: time-to-target-loss vs thread count. Lower is better.}}{13}{figure.caption.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9}Matrix Factorization: Time-to-Target vs Threads}{13}{subsection.6.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.10}Matrix Factorization: Throughput vs Threads}{13}{subsection.6.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Matrix factorization workload: update throughput vs thread count. Higher is better.}}{14}{figure.caption.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.11}Matrix Factorization: Speedup vs Threads}{14}{subsection.6.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Matrix factorization workload: speedup relative to the serial baseline. Values above 1 mean true speedup.}}{15}{figure.caption.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.12}Matrix Factorization: Loss vs Time}{15}{subsection.6.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Additional Findings from the CSV Sweeps}{15}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Schedule Sweep}{15}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Matrix factorization workload: convergence trajectories over wall-clock time.}}{16}{figure.caption.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}MF Contention Sweep}{16}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}MF Rank Sweep and Local Batch Reduce}{17}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Reflection: What We Learned}{17}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Limitations}{18}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Future Work}{18}{section.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Conclusion}{19}{section.11}\protected@file@percent }
+\gdef \@abspage@last{19}
